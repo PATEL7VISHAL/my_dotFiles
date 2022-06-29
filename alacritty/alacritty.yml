@@ -1,0 +1,135 @@
+
+#
+# modified 2021-06-28
+#
+
+#env:
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  #TERM: xterm-256color
+
+window:
+# Spread additional padding evenly around the terminal content.
+  padding:
+    x: 1
+    y: 1
+  # Remove buttons
+  decorations: none
+  # Open in full screen 
+  #startup_mode: SimpleFullscreen
+  # Dimensions if not SimpleFullscreen
+  dimensions:
+    columns: 147
+    lines: 37 
+
+  opacity: 0.60
+
+# Make background slightly transparent
+#background_opacity: 0.85
+# background_opacity: 0.60 3 deprecated
+
+cursor:
+  style:
+    #blinking: Always
+    blinking: Off
+  blink_interval: 500
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 10000
+
+font:
+  normal:
+    # Needs to be powerline font if using zsh theme with powerline
+    #family: monospace
+    family: Ubuntu Mono
+    
+  # Font size
+  size: 12.9
+
+  # Better font rendering for mac
+  use_thin_strokes: true
+
+# Colors (Hyper)
+colors:
+  # Default colors
+  primary:
+    #background: '#100010'
+    background: '#080f0a'
+    foreground: '#ffffff'
+  cursor:
+    # text: '#F81CE5'
+    text: '#ffffff'
+    cursor: '#ef4a00'
+    blinking: on
+
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#fe3130'
+    green:   '#80ff00'
+    yellow:  '#feff00'
+    blue:    '#00f6ff'
+    magenta: '#cc00ff'
+    cyan:    '#00ffff'
+    white:   '#f0f0f0'
+
+# ------------------------------------
+  hints:
+    # First character in the hint label
+    #
+    # Allowed values are CellForeground/CellBackground, which reference the
+    # affected cell, or hexadecimal colors like #ff00ff.
+    start:
+      foreground: '#1d1f21'
+      background: '#e9ff5e'
+
+    # All characters after the first one in the hint label
+    #
+    # Allowed values are CellForeground/CellBackground, which reference the
+    # affected cell, or hexadecimal colors like #ff00ff.
+    end:
+      foreground: '#e9ff5e'
+      background: '#1d1f21'
+
+key_bindings:
+#
+# Key bindings are specified as a list of objects. For example, this is the
+ #default paste binding:
+#
+ - { key: V, mods: Control|Shift, action: Paste }
+ - { key: P, mods: Control|Shift, action: IncreaseFontSize}
+ - { key: M, mods: Control|Shift, action: DecreaseFontSize}
+ - { key: L, mods: Control|Shift, action: ClearHistory}
+ - { key: F12 , action: ToggleFullscreen}
+ - { key: F, mods: Control|Shift, action: SearchForward}
+ - { key: N, mods: Control|Shift, action: SpawnNewInstance}
+ - { key: K, mods: Control|Shift, action: ClearSelection}
+ - { key: Q, mods: Control|Shift, action: Quit}
+ 
+
+# ---------------------------------------
+
+
+
+
+
+selection:
+  # This string contains all characters that are used as separators for
+  # "semantic words" in Alacritty.
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+
+  # When true, selected text will be copied to the primary clipboard
+  save_to_clipboard: true
+
+# Login shell with arguments
+shell:
+  program: /bin/fish
+  args:
+    - --login
+
+# Startup directory, unset or None for home directory
+working_directory: None
