@@ -104,10 +104,10 @@ if packer_status_ok then
     { "p00f/nvim-ts-rainbow", after = "nvim-treesitter" },
 
     -- Autoclose tags
-    { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
+    -- { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
 
     -- Context based commenting
-    { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
+    -- { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
 
     -- Syntax highlighting
     {
@@ -352,15 +352,15 @@ if packer_status_ok then
     { "b0o/SchemaStore.nvim", module = "schemastore" },
 
     -- Session manager
-    {
-      "Shatur/neovim-session-manager",
-      module = "session_manager",
-      cmd = "SessionManager",
-      event = "BufWritePost",
-      config = function()
-        require("configs.session_manager").config()
-      end,
-    },
+    -- {
+    --   "Shatur/neovim-session-manager",
+    --   module = "session_manager",
+    --   cmd = "SessionManager",
+    --   event = "BufWritePost",
+    --   config = function()
+    --     require("configs.session_manager").config()
+    --   end,
+    -- },
   }
 
   packer.startup {
