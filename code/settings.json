@@ -1,0 +1,12 @@
+{
+    "window.menuBarVisibility": "toggle",
+    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "Monokai",
+    "editor.fontFamily": "'Droid Sans Mono', 'Ubuntu Mono', Ubuntu Mono",
+    "editor.fontSize": 17.7,
+    "editor.lineNumbers": "relative",
+    "editor.lineHeight": 1.2,
+    "editor.mouseWheelZoom": true,
+    "terminal.integrated.fontSize": 16.7,
+    "security.workspace.trust.untrustedFiles": "open"
+}

@@ -1,41 +1,34 @@
-vim.opt.rtp:append(vim.fn.stdpath "config" .. "/../astronvim")
+if vim.g.vscode then
+    -- VSCode extension
+    require("josean.plugins-setup-vs")
+    require("josean.plugins.autopairs")
+    require("josean.plugins.lightspeed_nvim")
+    require("josean.plugins.todo-comments_nvim")
+    -- require("josean.core.options-vs")
+    require("josean.core.keymap-vs")
 
-local impatient_ok, impatient = pcall(require, "impatient")
-if impatient_ok then
-  impatient.enable_profile()
-end
-
-local utils = require "core.utils"
-
-utils.bootstrap()
-
-local sources = {
-  "core.options",
-  "core.plugins",
-  "core.autocmds",
-  "core.mappings",
-  "configs.which-key-register",
-}
-
-for _, source in ipairs(sources) do
-  local status_ok, fault = pcall(require, source)
-  if not status_ok then
-    error("Failed to load " .. source .. "\n\n" .. fault)
-  elseif source == "core.plugins" then
-    utils.compiled()
-  end
-end
-
-local status_ok, ui = pcall(require, "core.ui")
-if status_ok then
-  for ui_addition, enabled in pairs(utils.user_plugin_opts("ui", { nui_input = true, telescope_select = true })) do
-    if enabled and type(ui[ui_addition]) == "function" then
-      ui[ui_addition]()
-    end
-  end
-end
-
-local polish = utils.user_plugin_opts("polish", nil, false)
-if type(polish) == "function" then
-  polish()
+else
+    -- ordinary Neovim
+    require("josean.plugins-setup")
+    require("josean.core.options")
+    require("josean.core.keymaps")
+    require("josean.core.colorscheme")
+    -- require("josean.plugins.comment")
+    require("josean.plugins.nvim-tree")
+    require("josean.plugins.lualine")
+    require("josean.plugins.telescope")
+    require("josean.plugins.nvim-cmp")
+    require("josean.plugins.lsp.mason")
+    require("josean.plugins.lsp._lspsaga")
+    require("josean.plugins.lsp.lspconfig")
+    require("josean.plugins.lsp.null-ls")
+    require("josean.plugins.autopairs")
+    require("josean.plugins.treesitter")
+    -- require("josean.plugins.gitsigns")
+    require("josean.plugins.bufferline_nvim")
+    require("josean.plugins.lightspeed_nvim")
+    require("josean.plugins.lsp_signature_nvim")
+    require("josean.plugins.todo-comments_nvim")
+    require("josean.plugins._rust-tools")
+    -- require("josean.plugins.gruvbox")
 end
